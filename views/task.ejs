@@ -1,0 +1,45 @@
+<% include('layout') %> 
+<% if (typeof successMsg != 'undefined' && successMsg) { %>
+<div class="alert alert-success"><%- successMsg %></div>
+<% } else if(typeof errorMsg != 'undefined' && errorMsg) { %>
+<div class="alert alert-danger"><%- errorMsg %></div>
+<% } %>
+<section name="content">
+    <div class="container">
+        <h5 class="text-center"><a href="/users/logout">Logout</a></h5>
+        <h5 class="text-center"><a href="/users/addtask">Add New Task</a></h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>TaskName</th>
+                    <th>Deadline</th>
+                    <th>Task Timeline type</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (typeof tasks != 'undefined' && tasks.length > 0) { var srNo = 0; tasks.forEach( function ( task ){ srNo = srNo + 1; %>
+                <tr>
+                    <th scope="row"><%= srNo %></th>
+                    <td><%= task.taskname %></td>
+                    <td><%= task.deadline.getDate() + "-" + (task.deadline.getMonth() + 1) + "-" + task.deadline.getFullYear() %></td>
+                    <td><%= task.task_timeline_type %></td>
+                    <td><%= (task.priority == 1) ? "High" : (task.priority == 2) ? "Medium" :"Low"  %></td>
+                    <td><a href="/users/changestatus/<%= task._id %>/<%= task.status %>" title="Change Status of the task"><%= task.status %></a></td>
+                    <td>
+                        <a href="/users/edit/<%= task._id %>" title="Edit User"><button class="btn btn-primary">Edit</button></a>
+                        <a href="/users/destroy/<%= task._id %>" title="Delete User"><button class="btn btn-danger">Delete</button></a>
+                    </td>
+                </tr>
+                <% }); } else { %>
+                <tr>
+                    <td colspan="6">No Data</td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</section>

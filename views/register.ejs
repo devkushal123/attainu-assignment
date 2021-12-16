@@ -1,0 +1,65 @@
+<%- include('layout') %>
+<section name="content">
+    <div class="container">
+        <% if (typeof message != 'undefined' && message) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        
+        <form class="form-horizontal" role="form" method="post" action="/users/register">
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Firstname</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="fname" name="firstname" placeholder="Firstname" />
+                </div>
+                <% if (typeof fnameErr != 'undefined' && fnameErr) { %>
+                    <div class="alert alert-danger"><%= fnameErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Lastname</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lname" name="lastname" placeholder="Lastname" />
+                </div>
+                <% if (typeof lnameErr != 'undefined' && lnameErr) { %>
+                    <div class="alert alert-danger"><%= lnameErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="uname" name="username" placeholder="Username" />
+                </div>
+                <% if (typeof usernameErr != 'undefined' && usernameErr) { %>
+                    <div class="alert alert-danger"><%= usernameErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com"/>            
+                </div>
+                <% if (typeof emailErr != 'undefined' && emailErr) { %>
+                    <div class="alert alert-danger"><%= emailErr %></div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"/>
+                </div>
+                <% if (typeof passErr != 'undefined' && passErr) { %>
+                    <div class="alert alert-danger"><%= passErr %></div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <input id="submit" name="submit" type="submit" value="Register" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+        <h5 class="text-center"><a href="/users/login">If you are already registered, then signin</a></h5>        
+    </div>
+</section>
+ 

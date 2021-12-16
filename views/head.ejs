@@ -1,0 +1,31 @@
+<head>
+    <meta charset='utf-8'>
+    <title> AttainU </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0', name='viewport'>
+    <meta name='viewport', content='width=device-width'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <style>
+        body {
+            padding: 50px;
+            font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+        }
+    
+        a {
+            color: #00b7ff;
+        }
+    </style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('.alert-danger').fadeOut(10000);
+            $('.alert-success').fadeOut(10000);
+            $('.datepicker').datepicker({
+                startDate: '-d'
+            });
+        });
+    </script>
+</head>

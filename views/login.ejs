@@ -1,0 +1,43 @@
+<%- include('layout') %>
+<% if (typeof successMsg != 'undefined' && successMsg) { %>
+    <div class="alert alert-success"><%- successMsg %></div>
+<% } else if(typeof errorMsg != 'undefined' && errorMsg) { %>
+    <div class="alert alert-danger"><%- errorMsg %></div>
+<% } %>
+<section name="content">
+    <div class="container">        
+        <% if (typeof message != 'undefined' && message) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        
+        <form class="form-horizontal" role="form" method="post" action="/users/login">
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com"/>            
+                </div>
+                <% if (typeof emailErr != 'undefined' && emailErr) { %>
+                    <div class="alert alert-danger"><%= emailErr %></div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" name="password" placeholder="Password"/>
+                </div>
+                <% if (typeof passErr != 'undefined' && passErr) { %>
+                    <div class="alert alert-danger"><%= passErr %></div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button id="submit" type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </form>
+        <h5 class="text-center"><a href="/users/register">Registration</a></h5>        
+    </div>
+</section>
+ 

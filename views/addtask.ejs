@@ -1,0 +1,73 @@
+<%- include('layout') %>
+<section name="content">
+    <div class="container">
+        <% if (typeof message != 'undefined' && message) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        
+        <form class="form-horizontal" role="form" method="post" action="/users/addtask">
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">TaskName</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="taskname" placeholder="TaskName" />
+                </div>
+                <% if (typeof tasknameErr != 'undefined' && tasknameErr) { %>
+                    <div class="alert alert-danger"><%= tasknameErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="description" rows="4" cols="50"></textarea>
+                </div>
+                <% if (typeof descriptionErr != 'undefined' && descriptionErr) { %>
+                    <div class="alert alert-danger"><%= descriptionErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Deadline</label>
+                <div class="col-sm-10">
+                    <input class="datepicker form-control" data-date-format="mm/dd/yyyy" name="deadline">
+                </div>
+                <% if (typeof deadlineErr != 'undefined' && deadlineErr) { %>
+                    <div class="alert alert-danger"><%= deadlineErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Priority</label>
+                <div class="col-sm-10">
+                    <select name="priority" class="form-control">
+                        <option value=" ">Select Role</option>
+                        <option value="3">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="1">High</option>
+                    </select>
+                </div>
+                <% if (typeof priorityErr != 'undefined' && priorityErr) { %>
+                    <div class="alert alert-danger"><%= priorityErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Task Timeline Type</label>
+                <div class="col-sm-10">
+                    <select name="task_timeline_type" class="form-control">
+                        <option value="">Select Type</option>
+                        <option value="overdue">Overdue</option>
+                        <option value="today">Today</option>
+                        <option value="upcoming">Upcoming</option>
+                    </select>
+                </div>
+                <% if (typeof task_timeline_typeErr != 'undefined' && task_timeline_typeErr) { %>
+                    <div class="alert alert-danger"><%= task_timeline_typeErr %></div>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <h5 class="text-center"><a href="/users/dashboard">Task Listing</a></h5>        
+    </div>
+</section>
+ 
